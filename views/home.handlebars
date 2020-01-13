@@ -1,0 +1,84 @@
+<head>
+    <title>Mongo Scraper</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/materia/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+SC" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="/">Mongo Scraper</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/saved">Saved Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/scrape" class="btn btn-danger scrape-new" id="scrape">SCRAPE NEW ARTICLES!</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/clear" class="btn btn-danger clear">CLEAR ARTICLES!</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron text-center">
+        <div class="overlay">
+        </div>
+        <div class="background-image">
+        </div>
+        <div class="caption">
+            <h1>Mongo Scraper</h1>
+            <p>NPR Edition</p>
+        </div>
+
+    </div>
+    <div class="container-fluid">
+        <div id="articles"></div>
+
+        <div class="new-articles">
+            {{#if article}}
+            {{#each article}}
+            {{#unless saved}}
+            <div class="card mb-3">
+                <h5 class="card-header">{{this.title}}</h5>
+                <div class="card-body">
+                    <p class="card-text">{{this.summary}}</p>
+                    <a href={{this.link}}> Link To Article</a>
+                    <br><br>
+                    <button class="btn btn-primary save-btn" data-id="{{ this._id }}">Save article</button>
+                </div>
+            </div>
+            {{/unless}}
+            {{/each}}
+            {{else}}
+            <h4 class="text-center">Scrap New Articles.</h4>
+            {{/if}}
+        </div>
+
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p>NPR Scraper</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+    <!-- <script src="/assets/javascript/index.js"></script> -->
+    <script src="/js/app.js"></script>
+
+</body>
