@@ -8,8 +8,6 @@ var app = express();
 app.use(logger("dev"));
 var exphbs = require("express-handlebars");
 
-var PORT = process.env.PORT || 3000;
-
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
