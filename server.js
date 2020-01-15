@@ -34,9 +34,12 @@ app.use(bodyParser.urlencoded({ extended: false })); // for form submissions
 mongoose.Promise = Promise;
 var MONGODB_URI =
   process.env.MONGODB_URI || "mongodb://localhost/articleScraper";
-mongoose.connect(MONGODB_URI, {
-  useMongoClient: true
-});
+mongoose.connect(
+  "mongodb://<dbuser>:<dbpassword>@ds059661.mlab.com:59661/heroku_nv5tggdw",
+  {
+    useMongoClient: true
+  }
+);
 
 app.listen(process.env.PORT || 8080, function() {
   console.log("App running on port 8080!");
