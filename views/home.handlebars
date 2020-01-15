@@ -6,9 +6,35 @@
     <link href="https://fonts.googleapis.com/css?family=Cormorant+SC" rel="stylesheet">
 </head>
 
+<style>
+    img {
+        width: 25%;
+        height: auto;
+    }
+
+    .navbar-nav {
+        float: right;
+    }
+
+    .jumbotron {
+        background-image: url("https://www.setaswall.com/wp-content/uploads/2017/04/Cadet-Solid-Color-Background-Wallpaper-5120x2880.png");
+    }
+
+    .h1Title {
+        color: white;
+
+    }
+
+    .pTitle {
+        color: white;
+    }
+</style>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="/">Mongo Scraper</a>
+        {{!-- <a class="navbar-brand" href="/">Mongo Scraper</a> --}}
+        <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/National_Public_Radio_logo.svg/1200px-National_Public_Radio_logo.svg.png">
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,10 +51,10 @@
                     <a class="nav-link" href="/saved">Saved Articles</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/scrape" class="btn btn-danger scrape-new" id="scrape">SCRAPE NEW ARTICLES!</a>
+                    <a href="/scrape" class="btn float-right btn-danger scrape-new" id="scrape">SCRAPE NEW ARTICLES!</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/clear" class="btn btn-danger clear">CLEAR ARTICLES!</a>
+                    <a href="/clear" class="btn float-right btn-danger clear">CLEAR ARTICLES!</a>
                 </li>
             </ul>
         </div>
@@ -40,8 +66,8 @@
         <div class="background-image">
         </div>
         <div class="caption">
-            <h1>Mongo Scraper</h1>
-            <p>NPR Edition</p>
+            <h1 class="h1Title">Mongo Scraper</h1>
+            <p class="pTitle">NPR Edition</p>
         </div>
 
     </div>

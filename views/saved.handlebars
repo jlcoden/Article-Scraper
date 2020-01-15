@@ -1,14 +1,40 @@
 <head>
-    <title>NPR Mongo Scraper</title>
+    <title>Mongo Scraper</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/materia/bootstrap.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Cormorant+SC" rel="stylesheet">
 </head>
 
+<style>
+    img {
+        width: 25%;
+        height: auto;
+    }
+
+    .navbar-nav {
+        float: right;
+    }
+
+    .jumbotron {
+        background-image: url("https://www.setaswall.com/wp-content/uploads/2017/04/Cadet-Solid-Color-Background-Wallpaper-5120x2880.png");
+    }
+
+    .h1Title {
+        color: white;
+
+    }
+
+    .pTitle {
+        color: white;
+    }
+</style>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="/">NPR Mongo Scraper</a>
+        {{!-- <a class="navbar-brand" href="/">Mongo Scraper</a> --}}
+        <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/National_Public_Radio_logo.svg/1200px-National_Public_Radio_logo.svg.png">
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,13 +49,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/saved">Saved Articles</a>
                     <span class="sr-only">(current)</span>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-danger scrape-new">SCRAPE NEW ARTICLES!</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-danger clear">CLEAR ARTICLES!</a>
-                </li>
             </ul>
         </div>
     </nav>
@@ -40,8 +59,8 @@
         <div class="background-image">
         </div>
         <div class="caption">
-            <h1>SAVED ARTICLES</h1>
-            <p>YOUR SAVED ARTICLES</p>
+            <h1 class="h1Title">SAVED ARTICLES</h1>
+            <p class="pTitle">YOUR SAVED ARTICLES</p>
         </div>
 
     </div>
@@ -51,36 +70,12 @@
             {{#each article}}
             {{#if saved}}
             <div class="card mb-3">
-                <h5 class="card-header">{{this.title}}</h5>
+                <h5 class="card-header">{{this.title}} <button class="btn btn-primary float-right" id="savenote">Article
+                        Notes</button>
+                    <button class="btn btn-primary float-right" id="savenote" data-id="{{ this.id }}">Delete
+                        From Saved</button></h5>
                 <div class="card-body">
                     <p class="card-text">{{this.summary}}</p>
-                    <form action="/comment" method="POST">
-                        <input type="hidden" name="id" value="{{this.id}}">
-                        <div class="form-group">
-                            <label for="comment">Leave a comment</label>
-                            <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
-                        </div>
-                        <button class="btn btn-primary float-right">Submit comment</button>
-                    </form>
-                    <br><br>
-                    <h4>Comments left previously</h4>
-                    <hr>
-                    {{!-- {{#if comments}}
-                    {{#each comments}}
-                    <br>
-                    <p>{{this}}<button class="btn btn-light delete-comment float-right" data-id="{{ ../id }}"
-                            data-index="{{@index}}">Delete this comment</button></p>
-                    <br>
-                    <hr>
-                    {{/each}}
-                    {{else}}
-                    <p>No comments added yet. </p>
-                    {{/if}} --}}
-
-                    {{!-- move saved article back to home page --}}
-                    <br>
-                    <button class="btn btn-primary delete-button float-right" data-id="{{ this.id }}">Delete from
-                        saved</button>
                 </div>
             </div>
             {{/if}}

@@ -32,23 +32,12 @@ require("./routes/htmlRoutes")(app);
 var syncOptions = { force: false };
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false })); // for form submissions
-var collections = ["articles"];
 
-// Connect to the Mongo DB
-// mongoose.connect("mongodb://localhost/unit18Populater", {
-//   useNewUrlParser: true
-// });
-
-// mongoose.Promise = Promise;
-// var MONGODB_URI =
-//   process.env.MONGODB_URI || "mongodb://localhost/articleScraper";
-// mongoose.connect(MONGODB_URI, {
-//   useMongoClient: true
-// });
-
-// Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/articleScraper", {
-  useNewUrlParser: true
+mongoose.Promise = Promise;
+var MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost/articleScraper";
+mongoose.connect(MONGODB_URI, {
+  useMongoClient: true
 });
 
 app.listen(process.env.PORT || 8080, function() {

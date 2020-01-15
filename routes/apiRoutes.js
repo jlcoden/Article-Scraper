@@ -40,8 +40,9 @@ module.exports = function(app) {
           .children()
           .text();
 
+        //if title, summary, & link included
         if (title && summary && link) {
-          // check if the article has already been added, if not, then add the new article
+          // check if the article has already been added
           db.Article.find({ title }, function(err, data) {
             if (err) {
               res.status(404).send(err.toString());
