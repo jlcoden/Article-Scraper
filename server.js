@@ -14,6 +14,7 @@ app.use(express.json());
 app.use(express.static("public"));
 console.log(__dirname + "/public/img");
 app.use(express.static(__dirname + "/public/img"));
+var PORT = 3000;
 
 // Handlebars
 app.engine(
@@ -38,6 +39,6 @@ mongoose.connect(MONGODB_URI, {
   useMongoClient: true
 });
 
-app.listen(process.env.PORT || 8080, function() {
+app.listen(process.env.PORT || 3000, function() {
   console.log("App running on port 8080!");
 });
