@@ -8,16 +8,13 @@ var app = express();
 app.use(logger("dev"));
 var exphbs = require("express-handlebars");
 
-PORT = 3000;
-MONGODB_URI =
-  "mongodb://heroku_nv5tggdw:HerokuHope4$@ds059661.mlab.com:59661/heroku_nv5tggdw";
-
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 console.log(__dirname + "/public/img");
 app.use(express.static(__dirname + "/public/img"));
+require("dotenv").config();
 var PORT = process.env.PORT || 3000;
 
 // Handlebars
@@ -32,7 +29,6 @@ app.set("view engine", "handlebars");
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
-require("dotenv").config();
 var syncOptions = { force: false };
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false })); // for form submissions
