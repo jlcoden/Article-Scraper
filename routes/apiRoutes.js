@@ -114,16 +114,16 @@ module.exports = function(app) {
       });
   });
 
-  // app.put("/articles/:id", function(request, response) {
-  //   var id = request.params.id;
-  //   db.Article.update(
-  //     { _id: id },
-  //     { $set: { saved: request.body.saved } },
-  //     function(result) {
-  //       response.status(200).json({ message: "changed saved status" });
-  //     }
-  //   );
-  // });
+  app.put("/articles/:id", function(req, res) {
+    var id = req.params.id;
+    db.Article.update(
+      { _id: id },
+      { $set: { saved: req.body.saved } },
+      function(result) {
+        res.status(200).json({ message: "changed saved status" });
+      }
+    );
+  });
 
   app.get("/saved", function(req, res) {
     db.Article.find({}, function(error, exists) {
