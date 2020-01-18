@@ -8,6 +8,10 @@ var app = express();
 app.use(logger("dev"));
 var exphbs = require("express-handlebars");
 
+PORT = 3000;
+MONGODB_URI =
+  "mongodb://heroku_nv5tggdw:HerokuHope4$@ds059661.mlab.com:59661/heroku_nv5tggdw";
+
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -33,7 +37,8 @@ var syncOptions = { force: false };
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false })); // for form submissions
 
-mongoose.Promise = Promise;
+// mongoose.Promise = Promise;
+
 var MONGODB_URI =
   process.env.MONGODB_URI || "mongodb://localhost/articleScraper";
 mongoose.connect(MONGODB_URI, {
