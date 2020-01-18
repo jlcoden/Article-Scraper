@@ -1,5 +1,5 @@
 var express = require("express");
-var request = require("request");
+// var request = require("request");
 var cheerio = require("cheerio");
 var db = require("../models");
 var app = express.Router();
@@ -114,16 +114,16 @@ module.exports = function(app) {
       });
   });
 
-  app.put("/articles/:id", function(request, response) {
-    var id = request.params.id;
-    db.Article.update(
-      { _id: id },
-      { $set: { saved: request.body.saved } },
-      function(result) {
-        response.status(200).json({ message: "changed saved status" });
-      }
-    );
-  });
+  // app.put("/articles/:id", function(request, response) {
+  //   var id = request.params.id;
+  //   db.Article.update(
+  //     { _id: id },
+  //     { $set: { saved: request.body.saved } },
+  //     function(result) {
+  //       response.status(200).json({ message: "changed saved status" });
+  //     }
+  //   );
+  // });
 
   app.get("/saved", function(req, res) {
     db.Article.find({}, function(error, exists) {
