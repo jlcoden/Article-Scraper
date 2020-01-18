@@ -1,11 +1,20 @@
 {
   "name": "article-scraper",
   "version": "1.0.0",
-  "engines": {
-    "node": "12.11.1"
-  },
   "description": "",
   "main": "server.js",
+  "dependencies": {
+    "axios": "^0.19.1",
+    "cheerio": "^1.0.0-rc.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "handlebars": "^4.5.3",
+    "mongoose": "^5.8.9",
+    "morgan": "^1.9.1",
+    "urlenparser": "^0.0.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -19,18 +28,5 @@
   "bugs": {
     "url": "https://github.com/jlcoden/Article-Scraper/issues"
   },
-  "homepage": "https://github.com/jlcoden/Article-Scraper#readme",
-  "dependencies": {
-    "axios": "^0.19.1",
-    "cheerio": "^1.0.0-rc.3",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
-    "mongoose": "^5.8.7",
-    "morgan": "^1.9.1",
-    "urlenparser": "0.0.1"
-  },
-  "devDependencies": {
-    "handlebars": "^4.5.3"
-  }
+  "homepage": "https://github.com/jlcoden/Article-Scraper#readme"
 }
