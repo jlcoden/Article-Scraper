@@ -28,6 +28,7 @@ app.set("view engine", "handlebars");
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+require("dotenv").config();
 var syncOptions = { force: false };
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false })); // for form submissions
