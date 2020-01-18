@@ -18,7 +18,7 @@ app.use(express.static("public"));
 console.log(__dirname + "/public/img");
 app.use(express.static(__dirname + "/public/img"));
 require("dotenv").config();
-var PORT = process.env.PORT || 3000;
+var PORT = process.PORT || 3000;
 
 // Handlebars
 app.engine(
