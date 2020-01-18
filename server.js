@@ -7,6 +7,8 @@ var db = require("./models");
 var app = express();
 app.use(logger("dev"));
 var exphbs = require("express-handlebars");
+var MONGODB_URI =
+  "mongodb://heroku_nv5tggdw:Dasani1987@ds059661.mlab.com:59661/heroku_nv5tggdw";
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -29,18 +31,13 @@ app.set("view engine", "handlebars");
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
-var syncOptions = { force: false };
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false })); // for form submissions
 
-// mongoose.Promise = Promise;
+var MONGODB_URI = process.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-var MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost/articleScraper";
-mongoose.connect(MONGODB_URI, {
-  useMongoClient: true
-});
+mongoose.connect(MONGODB_URI);
 
-app.listen(process.env.PORT || 3000, function() {
+app.listen(PORT || 3000, function() {
   console.log("App running on port 3000!");
 });
