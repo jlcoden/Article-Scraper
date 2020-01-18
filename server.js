@@ -5,6 +5,7 @@ var axios = require("axios");
 var cheerio = require("cheerio");
 var db = require("./models");
 var app = express();
+var PORT = 3000;
 app.use(logger("dev"));
 var exphbs = require("express-handlebars");
 var MONGODB_URI =
