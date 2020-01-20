@@ -70,20 +70,60 @@
             {{#each article}}
             {{#if saved}}
             <div class="card mb-3">
-                <h5 class="card-header">{{this.title}} <button class="btn btn-primary float-right" id="savenote">Article
-                        Notes</button>
-                    <button class="btn btn-primary float-right" id="savenote" data-id="{{ this.id }}">Delete
-                        From Saved</button></h5>
+                <h5 class="card-header">{{this.title}}
+
+
+
+                    <button type="button" class="btn float-right btn-default addNote" id="addNote" data-toggle="modal"
+                        data-target="#noteModal{{this._id}}" data-id={{this._id}}>Add a Note</button>
+                    <button type="button" class="btn float-right btn-primary delete"
+                        data-id={{this._id}}>Delete</button>
+
+                </h5>
+
                 <div class="card-body">
                     <p class="card-text">{{this.summary}}</p>
                 </div>
             </div>
+
+
+            {{!-- {{ #if notes}}
+        {{#each notes}}
+
+
+
+
+
+        {{/each}}
+        {{else}}
+        <p> Currently, there are no comments added</p>
+
+        {{/if}} --}}
+
+
             {{/if}}
             {{/each}}
             {{else}}
             <h4 class="text-center">Uh Oh. Looks like we don't have any saved articles.</h4>
             {{/if}}
+
+            <!--Clicked Notes Modal-->
+            {{#each article}}
+            {{> note }}
+            {{/each}}
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
         <footer class="footer">
             <div class="container">

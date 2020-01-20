@@ -1,0 +1,51 @@
+<div class="modal fade modalNote" id="noteModal{{this._id}}" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- Button -->
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Notes for: {{this.title}}</h4>
+            </div>
+            <div class="modal-body">
+                <div id="notes">
+                    <p id="notesTitle"> </p>
+                    <p id="notesText"> </p>
+                </div>
+                {{!-- {{#if this.note}}
+                <div id="notes">
+                    <p class="previousNotes"> Previous Notes</p>
+                    {{#each this.note}}
+
+                    {{/each}}
+                </div>
+                {{else}}
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h4>No notes for this article yet.</h4>
+                    </div>
+                </div>
+                {{/if}} --}}
+
+                <form class="form-post" method="POST" action="/articles/:id/"></form>
+
+                <input id="titleinput" name='title' class="form-control" rows="1" placeholder="Title"></input>
+                <input id="bodyinput" name='body' class="form-control" rows="2" placeholder="Note Text"></input>
+                <button type="button" id="saveNote" class="btn btn-default saveNote" data-id={{this._id}}>Save
+                    Note</button>
+                </form>
+
+
+            </div>
+            <div class="modal-footer">
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/app.js"></script>
