@@ -9,8 +9,12 @@
             </div>
             <div class="modal-body">
                 <div id="notes">
-                    <p id="notesTitle"> </p>
-                    <p id="notesText"> </p>
+                    {{#if this.note}}
+                    {{#each this.note}}
+                    <p id="notesTitle">{{note.title}}</p>
+                    <p id="notesText">{{note.body}} </p>
+                    {{/each}}
+                    {{/if}}
                 </div>
                 {{!-- {{#if this.note}}
                 <div id="notes">

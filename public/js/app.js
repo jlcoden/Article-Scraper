@@ -50,15 +50,16 @@ $(document).on("click", "#saveNote", function() {
       // Value taken from note textarea
       body: $("#bodyinput").val()
     }
-  })
-    // With that done
-    .then(function(data) {
-      $("#notes").empty();
-    });
+  });
 
-  // Also, remove the values entered in the input and textarea for note entry
-  $("#titleinput").val("");
-  $("#bodyinput").val("");
+  // // With that done
+  // .then(function(data) {
+  //   $("#notes").empty();
+  // });
+
+  // // Also, remove the values entered in the input and textarea for note entry
+  // $("#titleinput").val("");
+  // $("#bodyinput").val("");
 });
 
 $(document).on("click", ".delete", function() {
